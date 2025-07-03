@@ -10,23 +10,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [macos-latest, windows-latest]
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Install system dependencies (Linux)
-        if: runner.os == 'Linux'
-        run: sudo apt-get update && sudo apt-get install -y default-libmysqlclient-dev build-essential
-
-      - name: Install MySQL client (macOS)
-        if: runner.os == 'macOS'
-        run: brew install mysql
-
-      - name: Install MySQL client (Windows)
-        if: runner.os == 'Windows'
-        run: choco install mysql
 
       - name: Set up Python
         uses: actions/setup-python@v5
