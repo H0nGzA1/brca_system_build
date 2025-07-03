@@ -3,7 +3,7 @@ name: Build Backend Executable
 on:
   workflow_dispatch:
   push:
-    branches: [ main, master ]  # 你可以改成自己的分支
+    branches: [ main ]
 
 jobs:
   build:
