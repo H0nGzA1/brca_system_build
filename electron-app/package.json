@@ -34,13 +34,25 @@
           "target": "nsis",
           "arch": ["x64"]
         }
-      ]
+      ],
+      "requestedExecutionLevel": "highestAvailable"
     },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
       "createDesktopShortcut": true,
-      "createStartMenuShortcut": true
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": true,
+      "uninstallDisplayName": "BRCA Desktop",
+      "runAfterFinish": true,
+      "menuCategory": "BRCA",
+      "artifactName": "${productName}-${version}-${arch}-setup.${ext}",
+      "perMachine": true,
+      "multiLanguageInstaller": false,
+      "warningsAsErrors": false,
+      "differentialPackage": false,
+      "include": "assets/installer.nsh"
     }
   }
 }
