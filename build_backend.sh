@@ -16,70 +16,8 @@ fi
 # 清理旧的 build、dist 目录
 rm -rf build dist __pycache__
 
-# 使用 PyInstaller 打包，显式包含所有关键模块
-pyinstaller main.py --onefile --name brca_backend \
-  --hidden-import=application.settings \
-  --hidden-import=application.celery \
-  --hidden-import=application.asgi \
-  --hidden-import=application.wsgi \
-  --hidden-import=application.dispatch \
-  --hidden-import=application.routing \
-  --hidden-import=application.websocketConfig \
-  --hidden-import=dvadmin \
-  --hidden-import=dvadmin.utils \
-  --hidden-import=dvadmin.utils.pagination \
-  --hidden-import=dvadmin.utils.exception \
-  --hidden-import=dvadmin.system \
-  --hidden-import=plugins \
-  --hidden-import=plugins.brca \
-  --hidden-import=celery \
-  --hidden-import=celery.fixups \
-  --hidden-import=celery.app.trace \
-  --hidden-import=celery.backends \
-  --hidden-import=celery.loaders \
-  --hidden-import=celery.fixups.django \
-  --hidden-import=celery.loaders.app \
-  --hidden-import=celery.loaders.default \
-  --hidden-import=celery.loaders.base \
-  --hidden-import=celery.loaders.settings \
-  --hidden-import=celery.loaders.django \
-  --hidden-import=dvadmin.utils.middleware \
-  --hidden-import=django \
-  --hidden-import=django.conf \
-  --hidden-import=django.core.asgi \
-  --hidden-import=django.core.wsgi \
-  --hidden-import=django.core.handlers.asgi \
-  --hidden-import=django.core.handlers.wsgi \
-  --hidden-import=channels \
-  --hidden-import=channels.layers \
-  --hidden-import=channels_redis \
-  --hidden-import=uvicorn \
-  --hidden-import=gunicorn \
-  --hidden-import=gevent \
-  --hidden-import=pypinyin \
-  --hidden-import=openpyxl \
-  --hidden-import=whitenoise \
-  --hidden-import=drf_yasg \
-  --hidden-import=dvadmin3_celery \
-  --hidden-import=django_cors_headers \
-  --hidden-import=django_filter \
-  --hidden-import=django_ranged_response \
-  --hidden-import=django_restql \
-  --hidden-import=django_simple_captcha \
-  --hidden-import=django_timezone_field \
-  --hidden-import=djangorestframework_simplejwt \
-  --hidden-import=websockets \
-  --hidden-import=user_agents \
-  --hidden-import=tzlocal \
-  --hidden-import=pyparsing \
-  --hidden-import=ua_parser \
-  --hidden-import=typing_extensions \
-  --hidden-import=six \
-  --hidden-import=requests \
-  --hidden-import=Pillow \
-  --hidden-import=mysqlclient \
-  --hidden-import=whitenoise.middleware \
-  || exit 1
+# 使用 PyInstaller 通过 spec 文件打包
+pyinstaller brca_backend.spec || exit 1
 
 cd -
 

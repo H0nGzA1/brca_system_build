@@ -411,6 +411,5 @@ from dvadmin3_celery.settings import *            # celery 异步任务
 # from dvadmin_tenants.settings import *            # 租户管理
 #from dvadmin_social_auth.settings import *
 #from dvadmin_uniapp.settings import *
-from plugins.brca.settings import *
 # ...
 # ********** 一键导入插件配置结束 **********
