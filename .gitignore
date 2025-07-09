@@ -12,7 +12,7 @@ venv/
 # PyInstaller
 build/
 dist/
-*.spec
+
 
 # Electron
 *.log
