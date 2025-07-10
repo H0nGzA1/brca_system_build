@@ -7,7 +7,13 @@ const os = require('os');
 let backendProcess;
 let backendPath;
 if (process.platform === 'darwin') {
-  backendPath = path.join(__dirname, 'backend_dist', 'mac', 'brca_backend');
+  if (os.arch() === 'arm64') {
+    backendPath = path.join(__dirname, 'backend_dist', 'mac-arm64', 'brca_backend');
+  } else if (os.arch() === 'x64') {
+    backendPath = path.join(__dirname, 'backend_dist', 'mac-x64', 'brca_backend');
+  } else {
+    throw new Error('Unsupported macOS architecture: ' + os.arch());
+  }
 } else if (process.platform === 'win32') {
   backendPath = path.join(__dirname, 'backend_dist', 'win', 'brca_backend.exe');
 } else if (process.platform === 'linux') {
