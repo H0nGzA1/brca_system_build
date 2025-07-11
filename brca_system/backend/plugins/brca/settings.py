@@ -6,7 +6,7 @@ table_prefix = 'brca_'
 # ================================================= #
 # 路由配置
 plugins_url_patterns = [
-    {"re_path": r'api/brca/', "include": "plugins.brca.urls"},
+    {"re_path": r'', "include": "plugins.brca.urls"},
 ]
 # app 配置
 apps = ['plugins.brca']
