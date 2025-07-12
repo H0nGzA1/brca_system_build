@@ -5,6 +5,8 @@ import sys
 
 # Add the current directory to Python path
 sys.path.insert(0, os.path.abspath('.'))
+# Ensure plugins directory is in path
+sys.path.insert(0, os.path.abspath('./plugins'))
 
 a = Analysis(
     ['main.py'],
@@ -12,6 +14,7 @@ a = Analysis(
     binaries=[],
     datas=[
         ('plugins', 'plugins'),
+        ('plugins/brca', 'plugins/brca'),
         ('templates', 'templates'),
         ('static', 'static'),
         ('db.sqlite3', '.'),

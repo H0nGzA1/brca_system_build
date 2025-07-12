@@ -22,6 +22,14 @@ find . -type f -name "*.pyo" -delete 2>/dev/null || true
 
 # 使用 PyInstaller 通过 spec 文件打包
 echo "开始打包..."
+echo "Current directory: $(pwd)"
+echo "Python executable: $(which python)"
+echo "Python version: $(python --version)"
+echo "Checking if plugins directory exists:"
+ls -la plugins/ 2>/dev/null || echo "plugins directory not found"
+echo "Checking if plugins/brca directory exists:"
+ls -la plugins/brca/ 2>/dev/null || echo "plugins/brca directory not found"
+
 pyinstaller brca_backend.spec || exit 1
 
 cd -

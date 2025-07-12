@@ -1,3 +1,6 @@
+print("=== BRCA Plugin Settings Loading ===")
+print(f"Loading file: {__file__}")
+
 from application import settings
 import datetime
 import os
@@ -6,6 +9,10 @@ import os
 BUILD_VERSION = "1.0.1"
 BUILD_TIME = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 FILE_PATH = os.path.abspath(__file__)
+
+print(f"BRCA Plugin loaded from: {FILE_PATH}")
+print(f"Current working directory: {os.getcwd()}")
+print(f"Python path: {sys.path}")
 
 table_prefix = 'brca_'
 # ================================================= #
