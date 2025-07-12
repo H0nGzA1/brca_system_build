@@ -4,6 +4,7 @@ print(f"Loading file: {__file__}")
 from application import settings
 import datetime
 import os
+import sys
 
 # 版本信息 - 用于验证构建是否生效
 BUILD_VERSION = "1.0.1"
