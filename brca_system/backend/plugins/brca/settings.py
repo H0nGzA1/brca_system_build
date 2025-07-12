@@ -1,9 +1,11 @@
 from application import settings
 import datetime
+import os
 
 # 版本信息 - 用于验证构建是否生效
-BUILD_VERSION = "1.0.0"
+BUILD_VERSION = "1.0.1"
 BUILD_TIME = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+FILE_PATH = os.path.abspath(__file__)
 
 table_prefix = 'brca_'
 # ================================================= #
@@ -33,4 +35,10 @@ settings.MIDDLEWARE += middlewares
 settings.PLUGINS_URL_PATTERNS += plugins_url_patterns
 
 # 打印构建信息
-print(f"BRCA Plugin loaded - Version: {BUILD_VERSION}, Build Time: {BUILD_TIME}")
+print(f"=== BRCA Plugin Debug Info ===")
+print(f"Version: {BUILD_VERSION}")
+print(f"Build Time: {BUILD_TIME}")
+print(f"File Path: {FILE_PATH}")
+print(f"URL Patterns: {plugins_url_patterns}")
+print(f"Apps: {apps}")
+print(f"===============================")

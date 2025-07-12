@@ -105,10 +105,10 @@ exe = EXE(
     a.datas,
     [],
     name='brca_backend',
-    debug=False,
+    debug=True,  # 启用调试模式
     bootloader_ignore_signals=False,
     strip=False,
-    upx=True,
+    upx=False,  # 禁用 UPX 压缩，避免缓存问题
     upx_exclude=[],
     runtime_tmpdir=None,
     console=True,
