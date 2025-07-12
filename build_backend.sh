@@ -13,10 +13,15 @@ else
     pip install pyinstaller || exit 1
 fi
 
-# 清理旧的 build、dist 目录
-rm -rf build dist __pycache__
+# 彻底清理旧的 build、dist 目录和缓存
+echo "清理旧的构建文件和缓存..."
+rm -rf build dist __pycache__ .pytest_cache
+find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
+find . -type f -name "*.pyc" -delete 2>/dev/null || true
+find . -type f -name "*.pyo" -delete 2>/dev/null || true
 
 # 使用 PyInstaller 通过 spec 文件打包
+echo "开始打包..."
 pyinstaller brca_backend.spec || exit 1
 
 cd -

@@ -21,6 +21,18 @@ jobs:
         with:
           python-version: '3.10'  # 你项目用的 Python 版本
 
+      - name: Clear cache and clean build
+        run: |
+          # 清理 Python 缓存
+          find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
+          find . -type f -name "*.pyc" -delete 2>/dev/null || true
+          find . -type f -name "*.pyo" -delete 2>/dev/null || true
+          
+          # 清理 PyInstaller 缓存
+          cd brca_system/backend
+          rm -rf build dist __pycache__ .pytest_cache
+          cd ../..
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip

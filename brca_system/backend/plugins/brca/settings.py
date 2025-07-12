@@ -1,4 +1,9 @@
 from application import settings
+import datetime
+
+# 版本信息 - 用于验证构建是否生效
+BUILD_VERSION = "1.0.0"
+BUILD_TIME = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 table_prefix = 'brca_'
 # ================================================= #
@@ -26,3 +31,6 @@ settings.MIDDLEWARE += middlewares
 
 # ********** 注册路由 **********
 settings.PLUGINS_URL_PATTERNS += plugins_url_patterns
+
+# 打印构建信息
+print(f"BRCA Plugin loaded - Version: {BUILD_VERSION}, Build Time: {BUILD_TIME}")

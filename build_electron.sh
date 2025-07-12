@@ -2,6 +2,10 @@
 # 初始化并打包 Electron 应用
 cd electron-app || exit 1
 
+# 清理旧的构建文件
+echo "清理旧的 Electron 构建文件..."
+rm -rf dist node_modules/.cache
+
 # 安装 Electron 和 electron-builder（如未安装）
 if [ ! -d "node_modules/electron" ]; then
   npm install electron@^27.0.0 --save-dev || exit 1
