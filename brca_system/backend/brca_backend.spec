@@ -86,7 +86,8 @@ a = Analysis(
         'requests', 
         'Pillow', 
         'mysqlclient', 
-        'whitenoise.middleware'
+        'whitenoise.middleware',
+        'whitenoise.storage'
     ],
     hookspath=['.'],
     hooksconfig={},
