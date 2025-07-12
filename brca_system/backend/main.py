@@ -9,7 +9,7 @@ from application.settings import LOGGING
 
 if __name__ == '__main__':
     multiprocessing.freeze_support()
-    workers = 4
+    workers = 1
     if os.sys.platform.startswith('win'):
         # Windows操作系统
         workers = None
